@@ -1,31 +1,29 @@
 # CineCritique
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.0.
+CineCritique is a dynamic movie review system developed using AngularJS for the front end and Express for the back end. The system stores data in a JSON file and supports full CRUD (Create, Read, Update, Delete) operations.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Movie Reviews:** Add, view, edit, and delete movie reviews.
+- **AngularJS:** Provides a responsive and interactive user interface.
+- **Express:** Serves as the back-end framework to handle server-side operations.
+- **JSON File Storage:** Efficiently stores and manages data.
 
-## Code scaffolding
+## Key Learnings
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **AngularJS:** Learned to create a dynamic and responsive user interface.
+- **Express:** Gained experience in building a robust server-side application.
+- **JSON File Storage:** Handled data storage and retrieval efficiently.
+- **CRUD Operations:** Implemented full Create, Read, Update, and Delete functionalities.
 
-## Build
+## Installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Prerequisites
 
-## Running unit tests
+- Node.js and npm installed on your machine.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Clone the Repository
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-"# CineCritique" 
-"# CineCritique" 
-"# CineCritique" 
-# CineCritique
+```sh
+git clone https://github.com/Amitsingh2000/CineCritique.git
+cd CineCritique
