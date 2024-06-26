@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "The Dark Knight",
+    "cover": "https://res.cloudinary.com/jerrick/image/upload/d_642250b563292b35f27461a7.png,f_jpg,fl_progressive,q_auto,w_1024/642a837281640a001d74206f.jpg",
+    "rating": "3.5",
+    "reviews": [
+      {
+        "author": "John Kramer",
+        "published_on": "2021-11-18 11:37:19",
+        "review": "Awesome movie!",
+        "rating": 4.5
+      },
+      {
+        "author": "Harry Potter",
+        "published_on": "2021-10-13 10:16:39",
+        "review": "Nice movie to watch in theatre!",
+        "rating": 4
+      }
+    ]
+  }
+]

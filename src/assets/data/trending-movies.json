@@ -1,0 +1,101 @@
+[
+  {
+    "id": 17,
+    "name": "Valvi",
+    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtTcAgKOCq2KA0LM3vgQniTMGDk7KNBNHvUA&s",
+    "rating": "4.5",
+    "reviews": [
+      {
+        "author": "Amit Pardeshi",
+        "published_on": "2024-06-10 22:16:56",
+        "review": "Wowwwwwwwwwwwwwwwwwwww",
+        "rating": 3
+      },
+      {
+        "author": "Rajput Amit",
+        "published_on": "2024-06-10 22:25:42",
+        "review": "ffffffffffffffffffffffff",
+        "rating": 3
+      },
+      {
+        "author": "demo",
+        "published_on": "2024-06-26 18:30:01",
+        "review": "exciting movie",
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Solar Opposites",
+    "cover": "https://resizing.flixster.com/bdnAgX9yiOosqfQq9BQA3H1QFh8=/180x258/v2/https://resizing.flixster.com/PHhwiYpYmFDHKQ99uh2cyumb_Ec=/ems.ZW1zLXByZC1hc3NldHMvdHZzZXJpZXMvNTgzMmQwZDUtNGRjYi00NGFhLWE2MGQtZDQzNDdhMmRiMDI4LmpwZw==",
+    "rating": 4.45,
+    "reviews": [
+      {
+        "author": "Amit Pardeshi",
+        "published_on": "2021-10-13 11:27:39",
+        "review": "Awesome movie!",
+        "rating": 4.5
+      },
+      {
+        "author": "Amit Pardeshi",
+        "published_on": "2024-06-10 22:24:54",
+        "review": "this very awesome movie",
+        "rating": 3
+      },
+      {
+        "author": "Amisha",
+        "published_on": "2024-06-10 22:32:15",
+        "review": "wowwwwwwwwwwwwwwwwwwwwwwww",
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Shrill",
+    "cover": "https://resizing.flixster.com/oRGQ7wfOztZ8eR5QSTFqAi8lXfk=/180x258/v2/https://resizing.flixster.com/sdzIZZLrB27H_ylYTb3E901n6LI=/ems.ZW1zLXByZC1hc3NldHMvdHZzZWFzb24vNjE1MDg1ZDgtMGU4NC00MTQzLTgwODktNWZkYmE5N2FkZDdiLmpwZw==",
+    "rating": 4.12,
+    "reviews": [
+      {
+        "author": "Amit Pardeshi",
+        "published_on": "2024-06-11 14:01:14",
+        "review": "Goddddddddddddddd",
+        "rating": 4
+      },
+      {
+        "author": "Rajput Amit",
+        "published_on": "2024-06-14 12:18:55",
+        "review": "asdfadsf",
+        "rating": 2
+      },
+      {
+        "author": "Rajput Amit",
+        "published_on": "2024-06-14 12:18:55",
+        "review": "asdfadsf",
+        "rating": 2
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Naal",
+    "cover": "https://m.media-amazon.com/images/M/MV5BYWRiYmViM2EtYzNjMy00OTgxLWE1MjItMmI5YTBjYzQxZjI0XkEyXkFqcGdeQXVyOTA2NzE1NTI@._V1_.jpg",
+    "rating": "4.5",
+    "reviews": [
+      {
+        "author": "Amit Rajput",
+        "published_on": "2024-06-21 16:00:25",
+        "review": "Fabolues",
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Natasamrat",
+    "cover": "https://lh3.googleusercontent.com/proxy/DMiU5xxiuu41ofNkPuNyB9HgDLIsOrc5HJO2cRfOLnXWC47jHF-HshImZp5FVIxXvKo45sIRrB8Kq9LkLTJIejYqjv4MyQkL-huALwjhGFK28iJ0MONe",
+    "rating": "4.8",
+    "reviews": []
+  }
+]

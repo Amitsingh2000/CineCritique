@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+    <div class="container-fluid">
+        <label class="h3 fw-bold mb-1 text-white" (click)="goToHome()">CineCritique</label>
+        <label class="h3 mb-1 text-white">&nbsp; |</label>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link fw-bold active" aria-current="page" (click)="goToHome()">Home</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item"  *ngIf="!isLogin()">
+                    <a class="nav-link fw-bold active" (click)="gotoLogin()">Login</a>
+                </li>
+                <li class="nav-item"  *ngIf="!isLogin()">
+                    <a class="nav-link fw-bold active" href="register">Sign Up</a>
+                </li>
+                <li class="nav-item"   *ngIf="isuserAdmin()" >
+                    <a class="nav-link fw-bold active" (click)="goToDashboard()">Dashboard</a>
+                </li>
+                <li class="nav-item"   *ngIf="isLogin()" >
+                    <a class="nav-link fw-bold active" (click)="logout()">LogOut</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

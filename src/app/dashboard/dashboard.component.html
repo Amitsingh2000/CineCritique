@@ -1,0 +1,290 @@
+<div class="row content">
+  <div class="col-3">
+    <nav class="sidebar sidebar-offcanvas bg-dark" id="sidebar">
+      <ul class="nav">
+        <li class="nav-item nav-category">Admin Dashboard</li>
+        <li class="nav-item" (click)="showDashboard()">
+          <a class="nav-link">
+            <span class="menu-title">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="showMovies()">
+            <span class="menu-title">Movies</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="showUsers()">
+            <span class="menu-title">Users</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="col-8 text-center">
+    
+    <section *ngIf="display === 'dashboard'" class="Movies">
+      <h2>Admin Dashboard</h2>
+      <div class="row mt-3">
+        <div class="card" style="width: 20rem;" data-bs-toggle="modal" data-bs-target="#registerMovieModel">
+          <i class="bi bi-film"></i>
+          <div class="card-body">
+            <h5 class="card-title">Add Movies</h5>
+          </div>
+        </div>
+        <div class="card" style="width: 20rem;" data-bs-toggle="modal" data-bs-target="#registerUserModel">
+          <i class="bi bi-person-add"></i>
+          <div class="card-body">
+            <h5 class="card-title">Add Users</h5>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section *ngIf="display === 'Movies'">
+      <h2>Movies Lists</h2>
+      <table class="table">
+        <thead class="table-dark">
+          <tr>
+            <td>Id</td>
+            <td>Movie Name</td>
+            <td>Rating</td>
+            <td>Actions</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pmovie of popularMovies">
+            <td>{{ pmovie.id }}</td>
+            <td>{{pmovie.name}}</td>
+            <td>{{pmovie.rating}}</td>
+            <td><a class="btn btn-danger" (click)="editMovie(pmovie,'popular')" data-bs-toggle="modal" data-bs-target="#editMovieModel">Edit</a>&nbsp;&nbsp;<a class="btn btn-dark" (click)="deleteMovie(pmovie.id, 'popular')">Delete</a></td>
+          </tr>
+          <tr *ngFor="let pmovie of theatreMovies">
+            <td>{{ pmovie.id }}</td>
+            <td>{{pmovie.name}}</td>
+            <td>{{pmovie.rating}}</td>
+            <td><a class="btn btn-danger" (click)="editMovie(pmovie,'theatre')" data-bs-toggle="modal" data-bs-target="#editMovieModel">Edit</a>&nbsp;&nbsp;<a class="btn btn-dark" (click)="deleteMovie(pmovie.id, 'theatre')">Delete</a></td>
+          </tr>
+          <tr *ngFor="let pmovie of trendingMovies">
+            <td>{{ pmovie.id }}</td>
+            <td>{{pmovie.name}}</td>
+            <td>{{pmovie.rating}}</td>
+            <td><a class="btn btn-danger" (click)="editMovie(pmovie,'trending')" data-bs-toggle="modal" data-bs-target="#editMovieModel">Edit</a>&nbsp;&nbsp;<a class="btn btn-dark" (click)="deleteMovie(pmovie.id, 'trending')">Delete</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section *ngIf="display === 'Users'">
+      <h2>Users Lists</h2>
+      <table class="table border">
+        <thead class="table-dark">
+          <tr>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Email ID</td>
+            <td>Actions</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of allUsers">
+            <td>{{ user.FirstName }}</td>
+            <td>{{user.LastName}}</td>
+            <td>{{user.emailId}}</td>
+            <td><a class="btn btn-danger"(click)="editUser(user)"  data-bs-toggle="modal" data-bs-target="#editUserModel">Edit</a>&nbsp;&nbsp;<a class="btn btn-dark" (click)="deleteUser(user.username)">Delete</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="registerUserModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add User</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="rating-form">
+          <form>
+            <h5 class="fw-normal mb-1 pb-3" style="letter-spacing: 1px;">Create your account</h5>
+            <div class="row mb-3">
+              <div class="form-group col-6">
+                <input type="text" id="fname" name="FirstName" [(ngModel)]="userDetails.FirstName"
+                  class="form-control form-control-lg" autocomplete="off" placeholder="First Name" />
+              </div>
+              <div class="form-group col-6">
+                <input type="text" id="lname" name="LastName" [(ngModel)]="userDetails.LastName"
+                  class="form-control form-control-lg"autocomplete="off" placeholder="Last Name" />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="form-outline col-6">
+                <input type="email" id="uname" name="username" [(ngModel)]="userDetails.username"
+                  class="form-control form-control-lg" autocomplete="off" placeholder="UserName" />
+              </div>
+              <div class="form-outline col-6">
+                <input type="password" id="pword" name="password" [(ngModel)]="userDetails.password"
+                  class="form-control form-control-lg" autocomplete="off" placeholder="Password" />
+              </div>
+            </div>
+            <div class="form-outline mb-3">
+              <input type="text" id="emailId" name="emailId" [(ngModel)]="userDetails.emailId"
+                class="form-control form-control-lg" autocomplete="off" placeholder="Email Address" />
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-primary" (click)="addUser()" value="Submit">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="registerMovieModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Movie</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="rating-form">
+          <form class="d-flex flex-column justify-content-center align-items-center">
+            <div class="row mb-3 w-75">
+              <div class="form-group col-12">
+                <input type="text" name="name" [(ngModel)]="movieDetails.name" class="form-control form-control-lg mx-auto"
+                  placeholder="Movie Name" autocomplete="off" />
+              </div>
+            </div>
+            <div class="row mb-3 w-75">
+              <div class="form-group col-12">
+                <input type="text" name="cover" [(ngModel)]="movieDetails.cover" class="form-control form-control-lg mx-auto"
+                  placeholder="Movie Cover Link" autocomplete="off" />
+              </div>
+            </div>
+            <div class="row mb-3 w-75">
+              <div class="form-outline col-12">
+                <input type="text" name="rating" [(ngModel)]="movieDetails.rating" class="form-control form-control-lg mx-auto"
+                  placeholder="Rating" autocomplete="off" />
+              </div>
+            </div>
+            <div class="row mb-3 w-75">
+              <div class="form-group col-12">
+                <select name="type" [(ngModel)]="movieType" class="form-select form-select-lg mx-auto">
+                  <option value="" disabled selected>Select Movie Type</option>
+                  <option value="theater">Theater</option>
+                  <option value="trending">Trending</option>
+                  <option value="popular">Popular</option>
+                </select>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-primary" (click)="addMovie()" value="Submit">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Movie Modal -->
+<div class="modal fade" id="editMovieModel" tabindex="-1" aria-labelledby="editMovieLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-2" id="editMovieLabel">Update Movie</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="rating-form">
+          <form class="d-flex flex-column justify-content-center align-items-center">
+            <div class="row mb-3 w-75">
+              <div class="form-group col-12">
+                <input type="text" name="name" [(ngModel)]="movieDetails.name" class="form-control form-control-lg mx-auto" placeholder="Movie Name" />
+              </div>
+            </div>
+            <div class="row mb-3 w-75">
+              <div class="form-group col-12">
+                <input type="text" name="cover" [(ngModel)]="movieDetails.cover" class="form-control form-control-lg mx-auto" placeholder="Movie Cover Link" />
+              </div>
+            </div>
+            <div class="row mb-3 w-75">
+              <div class="form-outline col-12">
+                <input type="text" name="rating" [(ngModel)]="movieDetails.rating" class="form-control form-control-lg mx-auto" placeholder="Rating" />
+              </div>
+            </div>
+            <div class="row mb-3 w-75">
+              <div class="form-group col-12">
+                <select name="type" [(ngModel)]="movieType" disabled class="form-select form-select-lg mx-auto">
+                  <option value="" disabled>Select Movie Type</option>
+                  <option value="theater" [selected]="movieType === 'theater'">Theater</option>
+                  <option value="trending" [selected]="movieType === 'trending'">Trending</option>
+                  <option value="popular" [selected]="movieType === 'popular'">Popular</option>
+                </select>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-primary" (click)="updateMovie()" value="Update">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit User Modal -->
+<div class="modal fade" id="editUserModel" tabindex="-1" aria-labelledby="editUserLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-2" id="editUserLabel">Update User</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="rating-form">
+          <form class="d-flex flex-column justify-content-center align-items-center">
+            <div class="row mb-3 w-75">
+              <div class="form-group col-6">
+                <input type="text" name="FirstName" [(ngModel)]="userDetails.FirstName" class="form-control form-control-lg mx-auto" placeholder="First Name" />
+              </div>
+              <div class="form-group col-6">
+                <input type="text" name="LastName" [(ngModel)]="userDetails.LastName" class="form-control form-control-lg mx-auto" placeholder="Last Name" />
+              </div>
+            </div>
+            <div class="row mb-3 w-75">
+              <div class="form-outline col-6">
+                <input type="email" name="username" [(ngModel)]="userDetails.username" class="form-control form-control-lg mx-auto" placeholder="Username" />
+              </div>
+              <div class="form-outline col-6">
+                <input type="password" name="password" [(ngModel)]="userDetails.password" class="form-control form-control-lg mx-auto" placeholder="Password" />
+              </div>
+            </div>
+            <div class="row mb-3 w-75">
+              <div class="form-outline col-12">
+                <input type="text" name="emailId" [(ngModel)]="userDetails.emailId" class="form-control form-control-lg mx-auto" placeholder="Email Address" />
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-primary" (click)="updateUser()" value="Update">
+      </div>
+    </div>
+  </div>
+</div>
+
+

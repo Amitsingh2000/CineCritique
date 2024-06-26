@@ -1,0 +1,81 @@
+<div class="movie-container">
+    <div class="top">
+        <div class="left">
+            <div class="name">{{movie.name}}</div>
+            <div class="rating">
+                <app-star-rating [rating]="movie.rating" [isReadOnly]="true"></app-star-rating>
+                <span class="rating-value">{{movie.rating}}</span>
+            </div>
+
+            <div class="cover"><img [src]="movie.cover" alt=""></div>
+        </div>
+        <div class="right">
+            <div class="buttons">
+
+                <button class="btn btn-danger">Watch Trailer</button>
+                <button class="btn btn-dark"(click)="onRateMovieClick()">Rate This
+                    Movie</button>
+
+            </div>
+            <h4 class="title">Reviews</h4>
+            <div class="reviews" *ngIf="movie.reviews.length>0">
+                <div class="review" *ngFor="let review of movie.reviews">
+                    <div class="review-details">
+                        <div class="review-left">
+                            <div class="author">{{review.author}}</div>
+                            <div class="msg">{{review.review}}</div>
+                            <div class="author_dt">{{review.published_on | date:"dd-MMM-YYYY"}}</div>
+                            
+                        </div>
+                        <div class="review-right">
+                            <div class="rating">
+                                <app-star-rating [rating]="review.rating" [isReadOnly]="true"></app-star-rating>
+                                <span class="rating-value">{{review.rating}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="reviews" *ngIf="movie.reviews.length === 0">
+                <div class="no-reviews">No Reviews Yet</div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="rateMoiveModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Rate This Movie</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="rating-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="author">Name</label>
+                            <input type="text" name="author" [(ngModel)]="reviewInfo.author" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="rating">Rating</label>
+                            <div class="rating"><app-star-rating (ratingChange)="onRatingChange($event)"></app-star-rating></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="review">Review</label>
+                            <textarea name="review" rows="3" class="form-control" [(ngModel)]="reviewInfo.review"></textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <input type="submit" class="btn btn-primary" (click)="rateMoive()" value="Submit">
+            </div>
+        </div>
+    </div>
+</div>

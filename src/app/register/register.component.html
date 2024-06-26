@@ -1,0 +1,61 @@
+<section class="vh-100 bg-dark">
+  <div class="container py-5 h-auto">
+    <div class="row d-flex justify-content-center align-items-center h-auto">
+      <div class="col col-xl-10">
+        <div class="card " style="border-radius: 1rem;">
+          <div class="row g-0">
+            <div class="col-md-6 col-lg-4 d-none d-md-block">
+              <img src="assets/register_image.webp" alt="login form" class="m-5 img-fluid "
+                style="border-radius: 1rem 0 0 1rem;" />
+            </div>
+            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 px-3 text-black">
+
+                <div class="d-flex align-items-center mb-2 pb-1">
+                  <i class="fas fa-cubes fa-2x " style="color: #ff6219;"></i>
+                  <span class="h1 fw-bold mb-0">CineCritique</span>
+                </div>
+                <form>
+                  <h5 class="fw-normal mb-1 pb-3" style="letter-spacing: 1px;">Create your account</h5>
+                  <div class="row mb-3">
+                    <div class="form-group col-6">
+                      <input type="text" id="fname" name="FirstName" [(ngModel)]="userDetails.FirstName"
+                        class="form-control form-control-lg" autocomplete="off" placeholder="First Name" />
+                    </div>
+                    <div class="form-group col-6">
+                      <input type="text" id="lname" name="LastName" [(ngModel)]="userDetails.LastName"
+                        class="form-control form-control-lg" autocomplete="off" placeholder="Last Name" />
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="form-outline col-6">
+                      <input type="email" id="uname" name="username" [(ngModel)]="userDetails.username"
+                        class="form-control form-control-lg" autocomplete="off" placeholder="UserName" />
+                    </div>
+                    <div class="form-outline col-6">
+                      <input type="password" id="pword" name="password" [(ngModel)]="userDetails.password"
+                        class="form-control form-control-lg" autocomplete="off" placeholder="Password" />
+                    </div>
+                  </div>
+                  <div class="form-outline mb-3">
+                    <input type="text" id="emailId" name="emailId" [(ngModel)]="userDetails.emailId"
+                      class="form-control form-control-lg" autocomplete="off" placeholder="Email Address" />
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-6">
+                      <button class="btn btn-dark" type="button" (click)="registerUser()">Register</button>
+                      <button class="btn btn-dark" type="button">Reset</button>
+                    </div>
+                  </div>
+                  <a href="#!" class="small text-muted">Terms of use.</a>
+                  <a href="#!" class="small text-muted">Privacy policy</a>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
